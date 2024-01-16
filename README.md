@@ -9,6 +9,8 @@ in [AIS Test 2.docx](AIS%20Test%202.docx).
 sample input and output examples for the task.
 - [requirements.txt](requirements.txt) contains the packages needed for the project
 - [captcha.py](captcha.py) contains the solution class for the task
+- [EDA.ipynb](EDA.ipynb) contains the Exploratory Data Analysis where I developed the approach to
+solve the task.
 
 ## Running the project
 
