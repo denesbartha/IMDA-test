@@ -14,7 +14,7 @@ solve the task.
 
 ## Running the project
 
-A virtual Python environment is needed to be installed. A simple virtual environment
+A virtual Python environment is needed to be set up. A simple virtual environment
 can be generated using the command `python -m venv venv` in a terminal.
 
 Next step is to source the python environment in a terminal by running  the command
@@ -45,19 +45,18 @@ creates the file `sampleCaptchas/output/output00.txt` with the corresponding str
 
 ###  Approach
 The approach that we used here is simply to find the best matching scores for each letter that
-uniquely identifies each of them. We use a statistical approach where we create a sum
-by multiplying the matrix that contains the pixel values 0 or 1s of a given letter area by a matrix
-that has the same dimensionality and each row `i` contains the first 8 prime numbers
-`[2, 3, 5, 7, 11, 13, 17, 19]` element-wise multiplied by the weight of `11^i`.
-This sum is uniquely describes each letter that we can just look up in a table in `O(1)` (if it
+uniquely identifies them. We use a statistical approach where we create a sum
+by multiplying the matrix that contains the pixel values 0 or 1s of a given letter area elementwise
+by a matrix that has the same dimensionality and each row `i` contains the first 8 prime numbers
+`[2, 3, 5, 7, 11, 13, 17, 19]` multiplied by a coefficient of `11^i`.
+This sum is uniquely describes each letter that we can simply look up in a table in `O(1)` (if it
 cannot be found, we find the closest element in the score table which takes `O(k)` where `k=36`,
-that is the alphabet + # of numerical values).
+that is the number of a-z + number of numerical values).
 Creating the score takes `O(w h)` time, where `w` is the width and `h` is the height of a letter.
 In this task we fixed these values by `w=30` and `h=60`.
 
 ### Testing
-I have tested the solution against the sample input and output sets. The results show identical
-values for reconstructing the texts from the images.
+I have tested the solution against the sample input and output sets.
 
 ```shell
 # create a temp dir
